@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:FreshBaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Nearest_Pharmacy.Pages.UserProfilePage"
+             xmlns:local="clr-namespace:FreshMvvm;assembly = Nearest_Pharmacy"
+             x:Name="_this">
+    <local:FreshBaseContentPage.Content>
+        <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand">
+            <TableView>
+                <TableView.Root>
+                    <TableSection BindingContext="{Binding User}">
+                        <EntryCell Label="Имя:" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" IsEnabled="{Binding isEdit}"
+                        Placeholder="{Binding Name}" TextColor="Green" />
+                        <EntryCell Label="Дата рождения:" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" IsEnabled="{Binding isEdit}"
+                        Placeholder="{Binding BornDate}" TextColor="Green"/>
+                        <EntryCell Label="Номер телефона:" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" IsEnabled="{Binding isEdit}"
+                        Placeholder="{Binding Number}" TextColor="Green"/>
+                        <EntryCell Label="Электронный адрес:" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" IsEnabled="{Binding isEdit}"
+                        Placeholder="{Binding Mail}"  TextColor="Green" />
+                        <EntryCell Label="Адрес:" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" IsEnabled="{Binding isEdit}"
+                        Placeholder="{Binding Address}"  TextColor="Green" />
+                        <Button Text= "{Binding BindingContext.Mode, Source={x:Reference _this}}" 
+                         Command="{Binding BindingContext.editBtn, Source={x:Reference _this}}" 
+                         CommandParameter="{Binding .}"/>
+                    </TableSection>
+                </TableView.Root>
+            </TableView>
+        </StackLayout>
+    </local:FreshBaseContentPage.Content>
+</local:FreshBaseContentPage>
+    
+    
